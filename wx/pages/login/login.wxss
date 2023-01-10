@@ -1,0 +1,123 @@
+page{
+    height: 100%;
+    width: 100%;
+    font-family: Source Han Sans CN;
+}
+
+.login-container{
+    padding: 68rpx 72rpx 0 72rpx;
+}
+.header {
+    font-size: 52rpx;
+    line-height: 66rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Microsoft YaHei UI;
+}
+.title {
+	height: 66rpx;
+    color: #D02129;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.input-content-box {
+    height: 84rpx;
+    border-radius: 100rpx;
+    margin: 60rpx 0;
+    text-align: center;
+}
+
+.nick-input {
+    height: 100%;
+    border-radius: 200rpx;
+    border: 2rpx solid rgba(0, 0, 0, 0.1);
+    font-size: 32rpx;
+}
+
+.avatar-container {
+}
+
+.avatar-notice {
+    line-height: 56rpx;
+    font-size: 28rpx;
+}
+
+.avatar-notice-info {
+    color: #D02129;
+}
+
+.avatar-box {
+    height: 300rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.avatar-box-item {
+    height: 134rpx;
+    width: 134rpx;
+    margin: 8rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-box-item image {
+    height: 124rpx;
+    width: 124rpx;
+    border-radius: 124rpx;
+    background-color: #F0AD4E;
+}
+
+.avatar-box .active {
+    border: 6rpx solid #D02129;
+    box-sizing: border-box;
+    border-radius: 124rpx;
+}
+
+.avatar-box .active image {
+    border: 6rpx solid #fff;
+    box-sizing: border-box;
+}
+
+.room-container {
+    height: 330rpx;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.1rem;
+}
+
+.room-title {
+    font-size: 30rpx;
+    line-height: 110rpx;
+    height: 110rpx;
+}
+
+.room-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.room-box-item {
+    width: 288rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    background-color: #D02129;
+    border-radius: 100rpx;
+    color: #fff;
+    font-size: 24rpx;
+}
+.input-notice {
+    border: 2rpx solid #D02129;
+}

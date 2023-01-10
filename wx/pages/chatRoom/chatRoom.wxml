@@ -1,0 +1,35 @@
+<view class="chat-room">
+	<view class="online-avatar-container">
+		<view class="online-avatar-item" wx:for-item="user" wx:for="{{currentRoom.onlineUsers.users}}" wx:key="key"
+			style="{{currentRoom.onlineUsers.users.length - 1===index?'z-index: 100':'transform:translateX('+ (currentRoom.onlineUsers.users.length-index)*20 +'rpx);z-index:'+(100-index)}}">
+			<image src="{{user.avatar}}" />
+		</view>
+		<view class="online-count">{{currentRoom.onlineUsers.count}}</view>
+	</view>
+	<view class="chat-room-container">
+		<view class="scroll-view">
+			<view id="item{{index}}"  class="message-box" wx:for-item="message" wx:for="{{currentRoom.messages}}" wx:key="key">
+				<view class="message-item">
+					<text class="user-name">{{message && message.senderNickname}}:</text>
+					<text class="{{message.senderUserId == currentRoom.currentUser.id ? 'user-message self' : 'user-message'}}">{{message && message.content}}</text>
+				</view>
+			</view>
+		</view>
+		<view class="chat-room-action">
+			<view class="message-input-box">
+				<view class="message-input">
+					<input placeholder="说点什么..." bindinput="onInputMessage" value="{{newMessageContent}}" />
+				</view>
+				<view class="message-btn" bindtap="sendMessage" data-messageType="{{MessageType.CHAT}}">↑</view>
+			</view>
+			<image class="heart" bindtap="sendMessage" src="../../static/images/handle-heart.png" data-messageType="{{MessageType.PROP}}"
+				   data-content="{{Prop.HEART}}"></image>
+			<image class="rocket" bindtap="sendMessage" src="../../static/images/rocket.png" data-messageType="{{MessageType.PROP}}"
+				   data-content="{{Prop.ROCKET}}"></image>
+		</view>
+	</view>
+	<view class="show-animation" wx:if="{{propDisplay.play}}">
+		<image class="prop-heart" wx:for="{{4}}" wx:for-item="image" wx:key="image" src="../../static/images/heart.png" wx:if="{{propDisplay.showPropType == Prop.HEART}}"></image>
+		<image class="prop-rocket" src="../../static/images/rocket.png" wx:if="{{propDisplay.showPropType == Prop.ROCKET}}"></image>
+	</view>
+</view>
