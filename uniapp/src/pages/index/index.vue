@@ -108,9 +108,9 @@
 
 <style>
   .header {
-    padding: 70 rpx 0;
-    font-size: 28 rpx;
-    line-height: 48 rpx;
+    padding: 70rpx 0;
+    font-size: 28rpx;
+    line-height: 48rpx;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -120,81 +120,81 @@
   .title {
     color: #D02129;
     font-weight: bold;
-    font-size: 52 rpx;
-    line-height: 66 rpx;
+    font-size: 52rpx;
+    line-height: 66rpx;
   }
 
   .content {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 0 60 rpx;
+    padding: 0 60rpx;
   }
 
   .uni-input {
-    height: 72 rpx;
-    border: 2 rpx solid rgba(0, 0, 0, 0.1);
+    height: 72rpx;
+    border: 2rpx solid rgba(0, 0, 0, 0.1);
     outline: none;
-    border-radius: 200 rpx;
-    padding: 16 rpx 30 rpx;
+    border-radius: 200rpx;
+    padding: 16rpx 30rpx;
     box-sizing: border-box;
-    font-size: 24 rpx;
+    font-size: 24rpx;
     text-align: center;
   }
 
   .avatar-container {
-    padding: 60 rpx 0;
+    padding: 60rpx 0;
   }
 
   .avatar-notice {
-    line-height: 56 rpx;
-    font-size: 28 rpx;
+    line-height: 56rpx;
+    font-size: 28rpx;
   }
 
   .avatar-notice-info {
-    padding-left: 20 rpx;
+    padding-left: 20rpx;
     color: #D02129;
   }
 
   .avatar-box {
-    height: 300 rpx;
+    height: 300rpx;
     display: flex;
     flex-wrap: wrap;
 
   }
 
   .avatar-box-item {
-    height: 140 rpx;
-    width: 140 rpx;
+    height: 140rpx;
+    width: 140rpx;
     box-sizing: border-box;
-    margin: 8 rpx;
+    margin: 8rpx;
   }
 
   .avatar-box-item image {
-    height: 124 rpx;
-    width: 124 rpx;
+    height: 124rpx;
+    width: 124rpx;
     background-color: #F0AD4E;
     border-radius: 35px;
   }
 
   .avatar-box .active {
-    border: 8 rpx solid red;
+    border: 8rpx solid red;
     box-sizing: border-box;
-    border-radius: 129 rpx;
+    border-radius: 129rpx;
   }
 
   .avatar-box .active image {
-    border: 8 rpx solid #fff;
+    border: 8rpx solid #fff;
     box-sizing: border-box;
   }
 
   .room-container {
-    height: 370 rpx;
+    height: 370rpx;
   }
 
   .room-title {
-    font-size: 30 rpx;
-    line-height: 38 rpx;
+    font-size: 30rpx;
+    line-height: 38rpx;
   }
 
   .room-box {
@@ -204,16 +204,16 @@
   }
 
   .room-box-item {
-    width: 288 rpx;
-    height: 90 rpx;
-    line-height: 90 rpx;
+    width: 288rpx;
+    height: 90rpx;
+    line-height: 90rpx;
     text-align: center;
     box-sizing: border-box;
     background-color: #D02129;
-    border-radius: 100 rpx;
+    border-radius: 100rpx;
     color: #fff;
-    margin-top: 32 rpx;
-    font-size: 26 rpx;
+    margin-top: 32rpx;
+    font-size: 26rpx;
   }
 
   .input-notice {

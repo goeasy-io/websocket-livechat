@@ -368,65 +368,65 @@
     position: fixed;
     right: 0;
     width: 100%;
-    height: 80 rpx;
+    height: 80rpx;
     display: flex;
     justify-content: flex-end;
-    padding: 28 rpx;
-    box-shadow: 10 rpx 30 rpx 50 rpx #fff;
+    padding: 28rpx;
+    box-shadow: 10rpx 30rpx 50rpx #fff;
     z-index: 40;
     background: #ffffff;
   }
 
   .online-avatar-item {
-    width: 80 rpx;
-    height: 80 rpx;
-    border-radius: 40 rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
     text-align: center;
-    line-height: 80 rpx;
+    line-height: 80rpx;
     background: rgba(51, 51, 51, 0.3);
     color: #fff;
-    font-size: 18 rpx 28 rpx;
+    font-size: 18rpx 28rpx;
   }
 
   .online-count {
-    width: 80 rpx;
-    height: 80 rpx;
-    border-radius: 40 rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
     text-align: center;
-    line-height: 80 rpx;
+    line-height: 80rpx;
     background: rgba(51, 51, 51, 0.3);
     color: #fff;
-    font-size: 28 rpx;
+    font-size: 28rpx;
   }
 
   .online-avatar-item image {
-    width: 80 rpx;
-    height: 80 rpx;
+    width: 80rpx;
+    height: 80rpx;
   }
 
   .chat-room-container {
-    padding-top: 100 rpx;
+    padding-top: 100rpx;
   }
 
   .scroll-view {
     overflow-y: auto;
-    padding: 20 rpx 38 rpx 130 rpx 38 rpx;
+    padding: 20rpx 38rpx 130rpx 38rpx;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
   }
 
   .message-box {
-    margin-top: 16 rpx;
+    margin-top: 16rpx;
   }
 
   .message-item {
     box-sizing: border-box;
-    height: 72 rpx;
+    height: 72rpx;
     background-color: rgba(196, 196, 196, 0.2);
     display: inline-block;
-    font-size: 28 rpx;
-    border-radius: 100 rpx;
-    padding: 18 rpx 30 rpx;
+    font-size: 28rpx;
+    border-radius: 100rpx;
+    padding: 18rpx 30rpx;
     font-family: Microsoft YaHei UI;
   }
 
@@ -443,48 +443,48 @@
   .chat-room-input {
     position: fixed;
     bottom: 0;
-    height: 92 rpx;
-    line-height: 92 rpx;
-    padding: 10 rpx 28 rpx 20 rpx 28 rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    padding: 10rpx 28rpx 20rpx 28rpx;
     display: flex;
     background: #ffffff;
   }
 
   .uni-input {
-    width: 528 rpx;
+    width: 528rpx;
     background-color: rgba(51, 51, 51, 0.1);
-    height: 92 rpx;
-    border-radius: 100 rpx;
+    height: 92rpx;
+    border-radius: 100rpx;
     box-sizing: border-box;
-    padding: 26 rpx 40 rpx;
-    font-size: 28 rpx;
+    padding: 26rpx 40rpx;
+    font-size: 28rpx;
   }
 
   .uni-btn {
     position: absolute;
     z-index: 1000;
-    width: 72 rpx;
-    height: 72 rpx;
+    width: 72rpx;
+    height: 72rpx;
     background: #D02129;
-    right: 10 rpx;
-    top: 10 rpx;
-    border-radius: 72 rpx;
+    right: 10rpx;
+    top: 10rpx;
+    border-radius: 72rpx;
     text-align: center;
-    line-height: 72 rpx;
+    line-height: 72rpx;
     color: #fff;
     font-weight: bold;
-    font-size: 32 rpx;
+    font-size: 32rpx;
   }
 
   .heart {
-    width: 80 rpx;
-    height: 92 rpx;
-    padding: 0 15 rpx;
+    width: 80rpx;
+    height: 92rpx;
+    padding: 0 15rpx;
   }
 
   .rocket {
-    width: 40 rpx;
-    height: 92 rpx;
+    width: 40rpx;
+    height: 92rpx;
   }
 
   .self {
@@ -492,33 +492,33 @@
   }
 
   .show-animation {
-    width: 80 rpx;
-    height: 320 rpx;
+    width: 80rpx;
+    height: 320rpx;
     position: fixed;
     z-index: 44;
     left: 50%;
-    bottom: 80 rpx;
-    margin: 0 -40 rpx;
+    bottom: 80rpx;
+    margin: 0 -40rpx;
     justify-content: flex-end;
     animation: myanimation 2s linear;
   }
 
   .prop-heart {
-    height: 80 rpx;
-    width: 80 rpx;
+    height: 80rpx;
+    width: 80rpx;
   }
 
   .prop-rocket {
-    height: 160 rpx;
-    width: 80 rpx;
+    height: 160rpx;
+    width: 80rpx;
   }
 
   @keyframes myanimation {
     from {
-      bottom: 80 rpx;
+      bottom: 80rpx;
     }
     to {
-      bottom: 600 rpx;
+      bottom: 600rpx;
     }
   }
 
