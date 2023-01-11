@@ -4,7 +4,7 @@ import GoEasy from "./lib/goeasy-2.5.11.min";
 
 const goEasy = GoEasy.getInstance({
     host: "hangzhou.goeasy.io",//应用所在的区域地址: 【hangzhou.goeasy.io |singapore.goeasy.io】
-    appkey: "BC-xxxxxx",// common key,
+    appkey: process.env.VUE_APP_APPKEY,// common key,
     modules: ['pubsub']
 });
 
