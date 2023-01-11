@@ -27,7 +27,7 @@ stages:
         commands:
           - '# 设置信息'
           - git remote rm origin
-          - git remote add origin https://${GIT_USER}:${GIT_PASS}@gitee.com/goeasy-io/helloworld.git
+          - git remote add origin https://${GIT_USER}:${GIT_PASS}@gitee.com/goeasy-io/live-chat.git
           - ''
           - '# 更新分支'
           - git fetch
