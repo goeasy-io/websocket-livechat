@@ -23,7 +23,7 @@ confirm_version() {
         vesionDir=${currentVersion:1}
         git add .
 
-        cd ../uniapp-vue
+        cd ../uniapp
         npm version patch --no-git-tag-version
         node correctManifestVersion.js
         git add .
@@ -44,7 +44,7 @@ confirm_version() {
         # 本地开发 版本
         cd web-vue3
         currentVersion=$(npm run env | grep npm_package_version | cut -d '=' -f 2)
-        vesionDir="show-helloworld/"$currentVersion
+        vesionDir="show-livechat/"$currentVersion
     fi
     # 退回根目录
     cd ../
@@ -74,7 +74,7 @@ build_web() {
 
 # 构建custiner服务
 build_uniapp() {
-    cd uniapp-vue
+    cd uniapp
     npm install
     npm run build -- --appkey=$config_appkey
     mv dist/build/h5 ../build/$vesionDir/uniapp
@@ -86,7 +86,7 @@ build_uniapp() {
 copy_html() {
     cp index.html build/$vesionDir/index.html
     # 替换index.html中的路径
-    basePath="\/show-helloworld\/$vesionDir"
+    basePath="\/show-livechat\/$vesionDir"
     uniappPath=src\=$basePath\\/uniapp\\/
     webPath=src\=$basePath\\/web\\/
     sed -i "s/src\=\"uniapp\/\"/$uniappPath/g" build/$vesionDir/index.html
@@ -101,7 +101,7 @@ upgrade_versions() {
     cd web-vue3
     nextVersion=$(npm version prerelease --no-git-tag-version)
     git add .
-    cd ../uniapp-vue
+    cd ../uniapp
     nextVersion=$(npm version prerelease --no-git-tag-version)
     node correctManifestVersion.js
     git add .
@@ -117,21 +117,21 @@ upgrade_versions() {
 
 }
 
-# 推送至show-helloworld
+# 推送至show-livechat
 deploy() {
-    if [ -d "show-helloworld" ]; then
-        rm -rf show-helloworld
+    if [ -d "show-livechat" ]; then
+        rm -rf show-livechat
     fi
-    git clone https://${git_usernamne}:${git_password}@gitee.com/goeasy-io/show-helloworld.git
+    git clone https://${git_usernamne}:${git_password}@gitee.com/goeasy-io/show-livechat.git
     # 清除老数据
-    if [ -d "show-helloworld/$vesionDir" ]; then
-        rm -rf show-helloworld/$vesionDir
+    if [ -d "show-livechat/$vesionDir" ]; then
+        rm -rf show-livechat/$vesionDir
     fi
     # 移动版本目录
-    mv build/$vesionDir show-helloworld/
+    mv build/$vesionDir show-livechat/
 
     # 切换仓库
-    cd show-helloworld
+    cd show-livechat
     # 设置信息
     git config user.name "${git_usernamne}"
     git config user.password "${git_password}"
@@ -146,9 +146,9 @@ deploy() {
 
 # 清理本地目录
 clear_file() {
-    rm -rf show-helloworld
+    rm -rf show-livechat
     rm -rf build
-    rm -rf uniapp-vue/node_modules
+    rm -rf uniapp/node_modules
     rm -rf web-vue3/node_modules
 }
 
