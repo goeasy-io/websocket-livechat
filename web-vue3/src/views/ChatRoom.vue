@@ -355,14 +355,14 @@
 
   function propAnimation(type) {//道具动画
     //动画的实现，可以不用关心
-    if (propDisplay.timer) {
+    if (propDisplay.value.timer) {
       return;
     }
-    propDisplay.showPropType = type;
-    propDisplay.play = true;
-    propDisplay.timer = setTimeout(() => {
-      propDisplay.play = false;
-      propDisplay.timer = null;
+    propDisplay.value.showPropType = type;
+    propDisplay.value.play = true;
+    propDisplay.value.timer = setTimeout(() => {
+      propDisplay.value.play = false;
+      propDisplay.value.timer = null;
     }, 2000)
   }
 
