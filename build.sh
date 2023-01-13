@@ -6,21 +6,30 @@ if [ "$1" ]; then
     ACTION=$1
 fi
 
-config_appkey=${APPKEY}
-git_usernamne=${GIT_USER}
-git_password=${GIT_PASS}
-git_email=${GIT_EMAIL}
+config_appkey=$2
+git_email=$3
+git_usernamne=$4
+git_password=$5
+git_hub_usernamne=$6
+git_hub_token=$7
+echo "action: $ACTION"
+echo "config_appkey: $config_appkey"
+echo "git_email: $git_email"
+echo "git_usernamne: $git_usernamne"
+echo "git_password: $git_password"
+echo "git_hub_usernamne: $git_hub_usernamne"
+echo "git_hub_token: $git_hub_token"
 
 # 获取当前版本并创建目录
 confirm_version() {
-
+    echo "----------start execute confirm_version----------"
     originBranch=$(git rev-parse --abbrev-ref HEAD)
 
     if [ "$ACTION" = "r" ]; then
         # release 版本
         cd web-vue3
         currentVersion=$(npm version patch --no-git-tag-version)
-        vesionDir=${currentVersion:1}
+        versionDir=${currentVersion:1}
         git add .
 
         cd ../uniapp
@@ -39,62 +48,70 @@ confirm_version() {
         # build 版本
         cd web-vue3
         currentVersion=$(npm run env | grep npm_package_version | cut -d '=' -f 2)
-        vesionDir=$currentVersion
+        versionDir=$currentVersion
     else
         # 本地开发 版本
         cd web-vue3
         currentVersion=$(npm run env | grep npm_package_version | cut -d '=' -f 2)
-        vesionDir="show-livechat/"$currentVersion
+        versionDir="show-livechat/"$currentVersion
     fi
     # 退回根目录
     cd ../
     echo "version confirmed:$currentVersion"
-
+    echo "----------end execute confirm_version----------"
 }
 
 # 获取当前版本并创建目录
 make_build_folder() {
-
+    echo "----------start execute make_build_folder----------"
     # 创建版本目录
     if [ -d "build" ]; then
         rm -rf build
     fi
-    mkdir -p build/$vesionDir
+    mkdir -p build/$versionDir
 
-    echo "made dir: build/$vesionDir"
+    echo "made dir: build/$versionDir"
+    echo "----------end execute make_build_folder----------"
 }
 # 构建web服务
 build_web() {
+    echo "----------start execute build_web----------"
     cd web-vue3
     npm install
     npm run build --appkey=$config_appkey
-    mv dist ../build/$vesionDir/web
+    mv dist ../build/$versionDir/web
     cd ../
+    echo "----------end execute build_web----------"
 }
 
 # 构建custiner服务
 build_uniapp() {
+    echo "----------start execute build_uniapp----------"
     cd uniapp
     npm install
     npm run build -- --appkey=$config_appkey
-    mv dist/build/h5 ../build/$vesionDir/uniapp
+    mv dist/build/h5 ../build/$versionDir/uniapp
     rm -rf dist
     cd ../
+    echo "----------end execute build_uniapp----------"
 }
 
 # 拷贝index.html
 copy_html() {
-    cp index.html build/$vesionDir/index.html
+    echo "----------start execute copy_html----------"
+    cp index.html build/$versionDir/index.html
     # 替换index.html中的路径
-    basePath="\/show-livechat\/$vesionDir"
+    basePath="\/show-livechat\/$versionDir"
     uniappPath=src\=$basePath\\/uniapp\\/
     webPath=src\=$basePath\\/web\\/
-    sed -i "s/src\=\"uniapp\/\"/$uniappPath/g" build/$vesionDir/index.html
-    sed -i "s/src\=\"web\/\"/$webPath/g" build/$vesionDir/index.html
+    sed -i "s/src\=\"uniapp\/\"/$uniappPath/g" build/$versionDir/index.html
+    sed -i "s/src\=\"web\/\"/$webPath/g" build/$versionDir/index.html
+    echo "----------end execute copy_html----------"
 }
 
 # 升级web服务的版本
 upgrade_versions() {
+    echo "----------start execute upgrade_versions----------"
     if [ "$ACTION" = "r" ]; then
         git checkout -f $originBranch
     fi
@@ -114,42 +131,43 @@ upgrade_versions() {
     git push -u origin $originBranch
 
     echo "$currentVersion is build, next version $nextVersion"
-
+    echo "----------end execute upgrade_versions----------"
 }
 
-# 推送至show-livechat
+# 推送至打包后文件夹到page项目
 deploy() {
     if [ -d "show-livechat" ]; then
-        rm -rf show-livechat
+      rm -rf show-livechat
     fi
-    git clone https://${git_usernamne}:${git_password}@gitee.com/goeasy-io/show-livechat.git
+    git clone https://user:$git_hub_token@ghproxy.com/https://github.com/goeasy-io/show-livechat.git show-livechat
     # 清除老数据
-    if [ -d "show-livechat/$vesionDir" ]; then
-        rm -rf show-livechat/$vesionDir
+    if [ -d "show-livechat/$versionDir" ]; then
+        rm -rf show-livechat/$versionDir
     fi
     # 移动版本目录
-    mv build/$vesionDir show-livechat/
+    mv build/$versionDir show-livechat/
 
     # 切换仓库
     cd show-livechat
-    # 设置信息
-    git config user.name "${git_usernamne}"
-    git config user.password "${git_password}"
-    git config user.email "${git_email}"
+
     # 标记推送
-    git add $vesionDir
-    git commit -m "[CD-build.sh]将$vesionDir部署到pages"
-    git push
+    git add $versionDir
+    git commit -m "[CD-build.sh]将$versionDir部署到pages"
+
+    git push -u origin main
     # 退出当前目录
     cd ../
+    echo "----------end execute deploy----------"
 }
 
 # 清理本地目录
 clear_file() {
+    echo "----------start execute clear_file----------"
     rm -rf show-livechat
     rm -rf build
     rm -rf uniapp/node_modules
     rm -rf web-vue3/node_modules
+    echo "----------end execute clear_file----------"
 }
 
 confirm_version

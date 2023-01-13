@@ -2,10 +2,6 @@
 # 开启错误退出
 set -e
 
-git_usernamne=${GIT_USER}
-git_password=${GIT_PASS}
-git_email=${GIT_EMAIL}
-
 if ([ "$1" ])
 then
     versionDir=$1
@@ -15,13 +11,20 @@ else
   exit 1
 fi
 
-# 推送至show-helloworld
-if [ -d "show-helloworld" ]; then
-    rm -rf show-helloworld
+git_hub_usernamne=$2
+git_hub_token=$3
+
+git config --global user.email "${git_hub_usernamne}"
+git config --global user.name "${git_hub_usernamne}"
+git config --global user.password "${git_hub_token}"
+
+# 推送至show-livechat
+if [ -d "show-livechat" ]; then
+    rm -rf show-livechat
 fi
-echo "https://${git_usernamne}:${git_password}@gitee.com/goeasy-io/show-helloworld.git"
-git clone https://${git_usernamne}:${git_password}@gitee.com/goeasy-io/show-helloworld.git
-cd show-helloworld
+echo "https://user:$git_hub_token@ghproxy.com/https://github.com/goeasy-io/show-livechat.git"
+git clone https://user:$git_hub_token@ghproxy.com/https://github.com/goeasy-io/show-livechat.git show-livechat
+cd show-livechat
 # 传入的versionDir不存在退出执行
 if [ -d $versionDir ]
 then
@@ -36,15 +39,21 @@ if [ -d "index.html" ]; then
 fi
 # 拷贝versionDir下的index.html到根目录index.html
 cp $versionDir/index.html index.html
-# 设置信息
-git config user.name "${git_usernamne}"
-git config user.password "${git_password}"
-git config user.email "${git_email}"
 # 标记推送
 git add .
+
+# 清除老数据
+if [ -d "static" ]; then
+    rm -rf static
+fi
+# 拷贝versionDir下的index.html到根目录index.html
+cp $versionDir/web/static static
+git add static
+# 标记推送
+
 git commit -m "[deploy.sh]将[$versionDir]版本部署到pages"
-git push
+git push -u origin main
 # 退出当前目录
 cd ../
 # 清理本地目录
-rm -rf show-helloworld
+rm -rf show-livechat
