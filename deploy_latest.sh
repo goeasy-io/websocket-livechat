@@ -47,6 +47,9 @@ if [ -d "static" ]; then
     rm -rf static
 fi
 # 拷贝versionDir下的index.html到根目录index.html
+cd $versionDir/web
+du -sh *
+cd ../../
 cp $versionDir/web/static ./
 git add static
 # 标记推送
