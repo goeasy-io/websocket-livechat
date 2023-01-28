@@ -1,6 +1,5 @@
-import Vue from 'vue'
 import App from './App'
-import GoEasy from "./lib/goeasy-2.5.11.min";
+import GoEasy from './lib/goeasy-2.5.20.esm.min.js'
 
 const goEasy = GoEasy.getInstance({
     host: "hangzhou.goeasy.io",//应用所在的区域地址: 【hangzhou.goeasy.io |singapore.goeasy.io】
@@ -8,13 +7,16 @@ const goEasy = GoEasy.getInstance({
     modules: ['pubsub']
 });
 
-Vue.prototype.goEasy = goEasy;
+// #ifdef VUE3
+import { createSSRApp } from 'vue'
+export function createApp() {
+    const app = createSSRApp(App)
 
-Vue.config.productionTip = false
+    app.provide('goEasy', goEasy);
 
-App.mpType = 'app'
+    return {
+        app
+    }
+}
+// #endif
 
-const app = new Vue({
-    ...App
-})
-app.$mount()

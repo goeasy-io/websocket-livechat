@@ -35,75 +35,75 @@
           </text>
         </view>
       </view>
+      <view class="version">{{ versionName }}</view>
     </view>
   </view>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        avatarList: [
-          {id: '1', imgUrl: '/static/images/1.png'},
-          {id: '2', imgUrl: '/static/images/2.png'},
-          {id: '3', imgUrl: '/static/images/3.png'},
-          {id: '4', imgUrl: '/static/images/4.png'},
-          {id: '5', imgUrl: '/static/images/5.png'},
-          {id: '6', imgUrl: '/static/images/6.png'},
-          {id: '7', imgUrl: '/static/images/7.png'},
-          {id: '8', imgUrl: '/static/images/8.png'}
-        ],
-        roomList: [
-          {roomId: "001", name: "程序员集散地"},
-          {roomId: "002", name: "舌尖上的中国"},
-          {roomId: "003", name: "驴友之家"},
-          {roomId: "004", name: "球迷乐翻天"}
-        ],
-        nickname: '',
-        selectedAvatar: {
-          imgUrl: '',
-          id: ''
-        },
-        selectedRoom: {
-          roomId: null,
-          roomName: '',
-        }
+<script setup>
+  import {ref, inject, nextTick} from 'vue'
+  import * as config from '../../manifest.json';
+  import { useRouter } from 'vue-router';
 
-      }
-    },
-    onShow() {
-      Object.assign(this.$data, this.$options.data());
-    },
-    methods: {
-      onInputUserName(event) {// 输入用户名
-        this.nickname = event.target.value;
-      },
-      onSelectAvatar(avtar) {//选择头像
-        this.selectedAvatar = avtar;
-      },
-      onSelectRoom(room) {//登录
-        if (this.selectedAvatar.imgUrl == "" || this.nickname == "") {
-          uni.showToast({
-            title: "请输入昵称，并选择头像",
-            duration: 2000,
-            icon: "none"
-          });
-          return
-        }
-        this.roomToken = {
-          roomId: room.roomId,
-          roomName: room.name,
-          userId: (Math.random() * 1000).toString(),
-          nickname: this.nickname,
-          avatar: this.selectedAvatar.imgUrl
-        };
-        let roomTokenAsJsonString = JSON.stringify(this.roomToken)
-        uni.navigateTo({
-          url: "/pages/chatroom/chatroom?roomToken=" + roomTokenAsJsonString
-        })
-      }
-    }
+  const router = useRouter();
+  const versionName = config.versionName;
+  const goEasy = inject('goEasy');
+  const avatarList = ref([
+    {id: '1', imgUrl: '/static/images/1.png'},
+    {id: '2', imgUrl: '/static/images/2.png'},
+    {id: '3', imgUrl: '/static/images/3.png'},
+    {id: '4', imgUrl: '/static/images/4.png'},
+    {id: '5', imgUrl: '/static/images/5.png'},
+    {id: '6', imgUrl: '/static/images/6.png'},
+    {id: '7', imgUrl: '/static/images/7.png'},
+    {id: '8', imgUrl: '/static/images/8.png'}
+  ])
+  const roomList = ref([
+    {roomId: "001", name: "程序员集散地"},
+    {roomId: "002", name: "舌尖上的中国"},
+    {roomId: "003", name: "驴友之家"},
+    {roomId: "004", name: "球迷乐翻天"}
+  ])
+  let nickname = ref('')
+  let selectedAvatar = ref({
+    imgUrl: '',
+    id: ''
+  })
+
+  const onInputUserName = (event) => {// 输入用户名
+    nextTick(() => {
+      nickname.value = event.detail.value
+    })
   }
+
+  const onSelectAvatar = (avtar) => {//选择头像
+    selectedAvatar.value = avtar;
+  }
+
+  const onSelectRoom = (room) => {//登录
+    if (selectedAvatar.value.imgUrl == "" || nickname.value == "") {
+      uni.showToast({
+        title: "请输入昵称，并选择头像",
+        duration: 2000,
+        icon: "none"
+      });
+      return
+    }
+    let roomToken = {
+      roomId: room.roomId,
+      roomName: room.name,
+      userId: (Math.random() * 1000).toString(),
+      nickname: nickname.value,
+      avatar: selectedAvatar.value.imgUrl
+    };
+    router.replace({
+      path: '/pages/chatroom/chatroom',
+      query: roomToken
+    });
+    nickname.value = ''
+    selectedAvatar.value = {};
+  }
+
 </script>
 
 <style>
@@ -222,6 +222,12 @@
 
   ::-webkit-input-placeholder {
     color: #D02129;
+  }
+
+  .version {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40rpx;
   }
 
 </style>

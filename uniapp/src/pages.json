@@ -9,7 +9,8 @@
         {
             "path": "pages/chatroom/chatroom",
             "style": {
-                "navigationBarTitleText": "GoEasy聊天室"
+                "navigationBarTitleText": "首页",
+                "navigationStyle": "custom"
             }
         }
     ],
