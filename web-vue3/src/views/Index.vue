@@ -21,7 +21,7 @@
               v-for="(avatar, key) in avatarList"
               :key="key"
               @click="onSelectAvatar(avatar)">
-              <img :src="avatar.imgUrl"/>
+              <img :src="baseUrl+avatar.imgUrl"/>
             </div>
           </div>
         </div>
@@ -49,6 +49,7 @@
   import {ref} from 'vue';
   import {useRouter} from 'vue-router';
   import { version } from '../../package.json';
+  const baseUrl = process.env.BASE_URL
 
   const avatarList = [
     {id: '1', imgUrl: '/static/images/1.png'},

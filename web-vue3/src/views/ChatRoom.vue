@@ -9,7 +9,7 @@
         <div class="online-avatar-item" v-for="(user, key) in currentRoom.onlineUsers.users"
              :key="key"
              :style="realignAvatar(key)">
-          <img :src="user.avatar"/>
+          <img :src="baseUrl+user.avatar"/>
         </div>
         <div class="online-count">{{ currentRoom.onlineUsers.users.length }}</div>
       </div>
@@ -52,6 +52,7 @@
 <script setup>
   import {ref, onMounted, onBeforeUnmount, inject, nextTick} from 'vue';
   import { useRoute, useRouter } from 'vue-router';
+  const baseUrl = process.env.BASE_URL
 
   const route = useRoute();
   const router = useRouter();
