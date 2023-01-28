@@ -68,5 +68,6 @@
             "postcss" : true,
             "minified" : true
         }
-    }
+    },
+    "vueVersion" : "3"
 }
