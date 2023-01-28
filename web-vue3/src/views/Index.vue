@@ -49,16 +49,17 @@
   import {ref} from 'vue';
   import {useRouter} from 'vue-router';
   import { version } from '../../package.json';
+  const baseUrl = process.env.BASE_URL
 
   const avatarList = [
-    {id: '1', imgUrl: '/static/images/1.png'},
-    {id: '2', imgUrl: '/static/images/2.png'},
-    {id: '3', imgUrl: '/static/images/3.png'},
-    {id: '4', imgUrl: '/static/images/4.png'},
-    {id: '5', imgUrl: '/static/images/5.png'},
-    {id: '6', imgUrl: '/static/images/6.png'},
-    {id: '7', imgUrl: '/static/images/7.png'},
-    {id: '8', imgUrl: '/static/images/8.png'}
+    {id: '1', imgUrl: baseUrl + '/static/images/1.png'},
+    {id: '2', imgUrl: baseUrl + '/static/images/2.png'},
+    {id: '3', imgUrl: baseUrl + '/static/images/3.png'},
+    {id: '4', imgUrl: baseUrl + '/static/images/4.png'},
+    {id: '5', imgUrl: baseUrl + '/static/images/5.png'},
+    {id: '6', imgUrl: baseUrl + '/static/images/6.png'},
+    {id: '7', imgUrl: baseUrl + '/static/images/7.png'},
+    {id: '8', imgUrl: baseUrl + '/static/images/8.png'}
   ]
   const roomList = [
     {roomId: "001", name: "程序员集散地"},
