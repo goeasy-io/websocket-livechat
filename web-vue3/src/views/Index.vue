@@ -3,7 +3,7 @@
     <div class="login-main">
       <div class="header">
         <span class="title">GoEasy Websocket示例</span>
-        <span class="title">聊天室（直播间）</span>
+        <span class="description">Vue3 聊天室（直播间）</span>
       </div>
       <div class="content">
         <input :class='nickname === "" ? "nick-input input-notice" : "nick-input"'
@@ -132,13 +132,18 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-family: Microsoft YaHei UI;
   }
 
   .title {
     color: #D02129;
     font-weight: bold;
     font-size: 26px;
+    line-height: 33px;
+  }
+
+  .description {
+    color: #D02129;
+    font-size: 24px;
     line-height: 33px;
   }
 

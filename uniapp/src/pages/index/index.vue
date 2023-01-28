@@ -2,7 +2,7 @@
   <view>
     <view class="header">
       <text class="title">GoEasy Websocket示例</text>
-      <text class="title">聊天室（直播间）</text>
+      <text class="description">Uniapp Vue3 聊天室（直播间）</text>
     </view>
     <view class="content">
       <input :class='nickname == "" ? "input-notice uni-input" : "uni-input"'
@@ -121,6 +121,12 @@
     color: #D02129;
     font-weight: bold;
     font-size: 52rpx;
+    line-height: 66rpx;
+  }
+
+  .description {
+    color: #D02129;
+    font-size: 40rpx;
     line-height: 66rpx;
   }
 

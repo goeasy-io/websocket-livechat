@@ -5,7 +5,7 @@
 	</view>
 	<view class="content">
 		<view class="input-content-box">
-			<input class='{{nickname == "" ? "input-notice nick-input" : "nick-input"}}' placeholder="请输入昵称"
+			<input class='{{nickname === "" ? "input-notice nick-input" : "nick-input"}}' placeholder="请输入昵称"
 				bindinput="onInputUserName" value="{{nickname}}" />
 		</view>
 		<view class="avatar-container">
@@ -14,7 +14,7 @@
 				<text class="avatar-notice-info" wx:if="{{selectedAvatar.imgUrl ===''}}">请选一个头像哦!!!</text>
 			</view>
 			<view class="avatar-box">
-				<view class="{{selectedAvatar.id == avatar.id ? 'avatar-box-item active' : 'avatar-box-item'}}" wx:for="{{avatarList}}"
+				<view class="{{selectedAvatar.id === avatar.id ? 'avatar-box-item active' : 'avatar-box-item'}}" wx:for="{{avatarList}}"
 				 wx:for-item="avatar" wx:key="key"  bindtap="onSelectAvatar" data-avatar="{{avatar}}">
 					<image src="{{avatar.imgUrl}}" />
 				</view>
