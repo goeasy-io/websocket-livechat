@@ -34,16 +34,16 @@
             <div class="message-btn" @click="sendMessage(MessageType.CHAT, newMessageContent)">↑</div>
           </div>
           <img class="heart" @click="sendMessage(MessageType.PROP, Prop.HEART)"
-               src="/static/images/handle-heart.png">
+               src="../../public/static/images/handle-heart.png">
           <img class="rocket" @click="sendMessage(MessageType.PROP, Prop.ROCKET)"
-               src="/static/images/rocket.png">
+               src="../../public/static/images/rocket.png">
         </div>
       </div>
       <div class="show-animation" v-if="propDisplay.play">
         <div class="prop-hearts" v-if="propDisplay.showPropType === Prop.HEART">
-          <img class="prop-heart" v-for="img in 4" :key="img" src="/static/images/heart.png">
+          <img class="prop-heart" v-for="img in 4" :key="img" src="../../public/static/images/heart.png">
         </div>
-        <img class="prop-rocket" src="/static/images/rocket.png" v-if="propDisplay.showPropType === Prop.ROCKET">
+        <img class="prop-rocket" src="../../public/static/images/rocket.png" v-if="propDisplay.showPropType === Prop.ROCKET">
       </div>
     </div>
   </div>
