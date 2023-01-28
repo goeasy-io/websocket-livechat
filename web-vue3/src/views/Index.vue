@@ -40,6 +40,7 @@
       <div class="error-info" v-show="errorInfo">
         <span class="error-info-title">请输入昵称，并选择头像</span>
       </div>
+      <div class="version">{{ version }}</div>
     </div>
   </div>
 </template>
@@ -47,6 +48,7 @@
 <script setup>
   import {ref} from 'vue';
   import {useRouter} from 'vue-router';
+  import { version } from '../../package.json';
 
   const avatarList = [
     {id: '1', imgUrl: '/static/images/1.png'},
@@ -194,7 +196,7 @@
   }
 
   .room-container {
-    height: 185px;
+    height: 120px;
   }
 
   .room-title {
@@ -234,6 +236,18 @@
     font-size: 9px;
     text-align: center;
     border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .error-info {
+    text-align: center;
+    font-size: 14px;
+    color: #d02129;
+    padding-left: 30px;
+  }
+
+  .version {
+    color: #FFFFFF;
+    text-align: center;
   }
 
 </style>

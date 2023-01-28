@@ -369,7 +369,7 @@
   function quitRoom() {
     goEasy.disconnect({
       onSuccess() {
-        router.replace({path: '/login'});
+        router.replace({path: '/index'});
         console.log("GoEasy disconnect successfully");
       },
       onFailed(error) {

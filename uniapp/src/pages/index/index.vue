@@ -35,14 +35,17 @@
           </text>
         </view>
       </view>
+      <view class="version">{{ versionName }}</view>
     </view>
   </view>
 </template>
 
 <script>
+  import * as config from '../../manifest.json';
   export default {
     data() {
       return {
+        versionName: config.versionName,
         avatarList: [
           {id: '1', imgUrl: '/static/images/1.png'},
           {id: '2', imgUrl: '/static/images/2.png'},
@@ -222,6 +225,12 @@
 
   ::-webkit-input-placeholder {
     color: #D02129;
+  }
+
+  .version {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40rpx;
   }
 
 </style>
