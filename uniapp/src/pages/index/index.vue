@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="header">
-      <text class="title">GoEasy示例</text>
+      <text class="title">GoEasy Websocket示例</text>
       <text class="title">聊天室（直播间）</text>
     </view>
     <view class="content">
