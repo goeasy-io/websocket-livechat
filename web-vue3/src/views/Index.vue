@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-main">
       <div class="header">
-        <span class="title">GoEasy示例</span>
+        <span class="title">GoEasy Websocket示例</span>
         <span class="title">聊天室（直播间）</span>
       </div>
       <div class="content">
