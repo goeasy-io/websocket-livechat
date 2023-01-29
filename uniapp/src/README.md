@@ -1,31 +1,18 @@
-# Uniapp版直播间聊天室Demo
+## GoEasy Websocket Uniapp Vue3 直播间弹幕和聊天室示例运行步骤
+
+本示例，可以编译为H5、ios app和android ios和微信小程序，以及其他各种小程序
+
+### 免费获取appkey
+1. 访问[GoEasy官网](https://www.goeasy.io)进行注册
+2. 登陆后，创建一个应用
+3. 进入应用详情，即可看到自己的appkey
+
+### 替换appkey
+打开main.js，找到初始化GoEasy的地方，将appkey替换成您应用的common key
 
 
-### 代码量减少50%， 更简单，更清晰！ 包括Nvue和Vue的实现!
+### 小程序注意事项
+如果编译为微信小程序，需要登录到微信官方后台，将wx-hangzhou.goeasy.io加入到socket合法域名列表
 
-![image](./static/images/live-chatroom.gif)
-
-
-## 运行步骤
-
-### 获取GoEasy Appkey
-```
-先注册一个账号，登录后，创建一个应用，就能得到您的appkey。
-```
-### 配置您的appkey
-```
-在main.js里，将appkey替换为您自己的common key
-```
-
-
-### 切换到NVUE
-默认为vue, 可以在pages.json里，切换vue和nvue
-
-
-
-
-####GoEasy官网
-
-www.goeasy.io    扫码添加GoEasy技术支持为好友  
-![image](https://www.goeasy.io/images/qrcode-2.jpg)
-
+### 体验
+建议可以同时运行到多个终端（比如h5或app），体验多个客户端之间互动。
