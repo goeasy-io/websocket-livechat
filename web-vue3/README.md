@@ -10,7 +10,7 @@
 
 ### 运行步骤
 
-将目录切换到livechat/web-vue3/
+将目录切换到live-chat/web-vue3/
 
 ##### 安装依赖
 ```
