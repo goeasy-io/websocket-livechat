@@ -18,10 +18,10 @@
 
 ````
 livechat------------------包含四个版本的PubSub聊天demo
-    ├── uniapp-vue---------------基于Uniapp，可直接编译为H5，微信小程序和App（iOS/Android）
+    ├── uniapp---------------基于Uniapp，可直接编译为H5，微信小程序和App（iOS/Android）
     │    └── src-------------源码根目录  
     │         └── README.MD--运行步骤
-    ├── web-vue3------------------PC版Demo，基于vue3开发   
+    ├── web-vue3-------------PC版Demo，基于vue3开发   
     │    └── README.MD-------运行步骤
     └── wx-------------------微信小程序原生开发
          └── README.MD-------运行步骤
