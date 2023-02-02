@@ -1,39 +1,34 @@
-# 直播间聊天室
+# GoEasy Websocket直播弹幕和聊天室
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+无需搭建websocket服务，几行代码，搞定websocket！
 
-#### 软件架构
-软件架构说明
+一个SDK，同时支持Web页面、各种小程序、Uniapp、Taro和Cocos等各种Web技术平台实现Websocket实时通讯！
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+免费帮助开发者快速完成功能完善、高性能低延时、企业级高可用稳定的Wesocket实时通讯功能，帮助技术团队：
+* 降低开发者技术难度，缩短开发周期
+* 降低开发和维护成本，减小服务器和带宽开销
+* 提高服务的稳定性，改善用户体验
 
 
-#### 特技
+## 体验在线示例(免注册)
+* [GoEasy Websocket直播弹幕和聊天室在线体验](https://www.goeasy.io/cn/demos/demos.html#livechat)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+## Demo源码说明
+
+````
+livechat------------------包含四个版本的PubSub聊天demo
+    ├── uniapp---------------基于Uniapp，可直接编译为H5，微信小程序和App（iOS/Android）
+    │    └── src-------------源码根目录  
+    │         └── README.MD--运行步骤
+    ├── web-vue3-------------PC版Demo，基于vue3开发   
+    │    └── README.MD-------运行步骤
+    └── wx-------------------微信小程序原生开发
+         └── README.MD-------运行步骤
+````
+
+## 获得帮助和技术支持
+可查阅GoEasy开发文档，或者访问GoEasy官网，在线咨询技术人员，或拨打官方技术支持电话。
+* [GoEasy Websocket开发文档](https://docs.goeasy.io/2.x/pubsub)
+* [GoEasy 官网](https://www.goeasy.io)
+

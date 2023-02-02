@@ -1,19 +1,29 @@
-# web-vue3
+## GoEasy Websocket Vue3 直播弹幕和聊天室示例运行步骤
 
-## Project setup
+### 免费获取appkey
+1. 访问[GoEasy官网](https://www.goeasy.io)进行注册
+2. 登陆后，创建一个应用
+3. 进入应用详情，即可看到自己的appkey
+
+### 替换appkey
+打开main.js，找到初始化GoEasy的地方，将appkey替换成您应用的common key
+
+### 运行步骤
+
+将目录切换到live-chat/web-vue3/
+
+##### 安装依赖
 ```
-npm install
+npm ci
 ```
 
-### Compiles and hot-reloads for development
+##### 运行服务
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 体验
+建议可以同时运行在多个浏览器窗口，体验多个客户端之间互动。
+

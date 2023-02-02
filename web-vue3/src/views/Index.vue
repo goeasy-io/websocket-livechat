@@ -122,11 +122,11 @@
 
   .login-main {
     width: 850px;
-    height: 650px;
+    height: 450px;
   }
 
   .header {
-    padding: 60px 0 25px 0;
+    padding: 30px 0 25px 0;
     font-size: 14px;
     line-height: 24px;
     text-align: center;
@@ -198,7 +198,6 @@
 
   .avatar-box .active image {
     border: 4px solid #fff;
-    box-sizing: border-box;
   }
 
   .room-container {
@@ -221,7 +220,6 @@
     height: 45px;
     line-height: 45px;
     text-align: center;
-    box-sizing: border-box;
     background-color: #D02129;
     border-radius: 50px;
     color: #fff;
@@ -238,7 +236,6 @@
     outline: none;
     border-radius: 80px;
     padding: 6px 12px;
-    box-sizing: border-box;
     font-size: 9px;
     text-align: center;
     border: 1px solid rgba(0,0,0,0.1);
