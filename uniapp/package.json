@@ -1,6 +1,6 @@
 {
   "name": "GoEasyDemo-Uniapp-LiveChatRoom",
-  "version": "1.0.3-4",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "dev:app": "uni -p app",
