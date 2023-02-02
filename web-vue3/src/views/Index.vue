@@ -154,7 +154,7 @@
   }
 
   .avatar-container {
-    padding: 30px 0;
+    padding: 15px 0;
   }
 
   .avatar-notice {
@@ -168,7 +168,7 @@
   }
 
   .avatar-box {
-    height: 105px;
+    height: 80px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -200,7 +200,7 @@
   }
 
   .room-container {
-    height: 120px;
+    height: 100px;
   }
 
   .room-title {
