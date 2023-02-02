@@ -2,30 +2,32 @@
 # 开启错误退出
 set -e
 
-if [ "$1" ]; then
-    ACTION=$1
-fi
+action=${ACTION}
+config_appkey=${APPKEY}
+git_username=${GIT_USER}
+git_password=${GIT_PASS}
+git_email=${GIT_EMAIL}
+ftp_host=${FTP_HOST}
+ftp_username=${FTP_USER}
+ftp_password=${FTP_PASS}
+ftp_compressed=${FTP_UPLOAD_COMPRESSED}
 
-config_appkey=$2
-git_email=$3
-git_usernamne=$4
-git_password=$5
-git_hub_usernamne=$6
-git_hub_token=$7
-echo "action: $ACTION"
+echo "action: $action"
 echo "config_appkey: $config_appkey"
-echo "git_email: $git_email"
-echo "git_usernamne: $git_usernamne"
+echo "git_username: $git_username"
 echo "git_password: $git_password"
-echo "git_hub_usernamne: $git_hub_usernamne"
-echo "git_hub_token: $git_hub_token"
+echo "git_email: $git_email"
+echo "ftp_host: $ftp_host"
+echo "ftp_username: $ftp_username"
+echo "ftp_password: $ftp_password"
+echo "ftp_compressed: $ftp_compressed"
 
 # 获取当前版本并创建目录
 confirm_version() {
     echo "----------start execute confirm_version----------"
     originBranch=$(git rev-parse --abbrev-ref HEAD)
 
-    if [ "$ACTION" = "r" ]; then
+    if [ "$action" = "r" ]; then
         # release 版本
         cd web-vue3
         currentVersion=$(npm version patch --no-git-tag-version)
@@ -44,7 +46,7 @@ confirm_version() {
         git push origin $currentVersion
         git checkout $currentVersion
 
-    elif [ "$ACTION" = "b" ]; then
+    elif [ "$action" = "b" ]; then
         # build 版本
         cd web-vue3
         currentVersion=$(npm run env | grep npm_package_version | cut -d '=' -f 2)
@@ -100,19 +102,36 @@ build_uniapp() {
 copy_html() {
     echo "----------start execute copy_html----------"
     cp index.html build/$versionDir/index.html
-    # 替换index.html中的路径
-    basePath="\/show-livechat\/$versionDir"
-    uniappPath=src\=$basePath\\/uniapp\\/
-    webPath=src\=$basePath\\/web\\/
-    sed -i "s/src\=\"uniapp\/\"/$uniappPath/g" build/$versionDir/index.html
-    sed -i "s/src\=\"web\/\"/$webPath/g" build/$versionDir/index.html
     echo "----------end execute copy_html----------"
+}
+
+# 提交压缩文件或非压缩文件到ftp服务器
+publish_ftp_server() {
+    npm ci
+    if [ "$ftp_compressed" = true ] ; then
+        echo "ftp upload compressed files"
+        mkdir $versionDir
+        cp -rf ./build/$versionDir/** ./$versionDir/
+        mkdir dist
+        tar -czvf ./dist/$versionDir.tar.gz ./$versionDir
+        node ftp-upload.js $ftp_host $ftp_username $ftp_password
+	      rm -rf dist
+        rm -rf $versionDir
+        rm -rf node_modules
+    else
+        echo 'ftp upload uncompressed files'
+        mkdir dist
+	      cp -rf ./build/$versionDir/ ./dist/
+        node ftp-upload.js $ftp_host $ftp_username $ftp_password
+        rm -rf dist
+        rm -rf node_modules
+    fi
 }
 
 # 升级web服务的版本
 upgrade_versions() {
     echo "----------start execute upgrade_versions----------"
-    if [ "$ACTION" = "r" ]; then
+    if [ "$action" = "r" ]; then
         git checkout -f $originBranch
     fi
     cd web-vue3
@@ -123,7 +142,7 @@ upgrade_versions() {
     node correctManifestVersion.js
     git add .
     # 设置信息
-    git config user.name "${git_usernamne}"
+    git config user.name "${git_username}"
     git config user.password "${git_password}"
     git config user.email "${git_email}"
     # 推送
@@ -132,32 +151,6 @@ upgrade_versions() {
 
     echo "$currentVersion is build, next version $nextVersion"
     echo "----------end execute upgrade_versions----------"
-}
-
-# 推送至打包后文件夹到page项目
-deploy() {
-    if [ -d "show-livechat" ]; then
-      rm -rf show-livechat
-    fi
-    git clone https://user:$git_hub_token@ghproxy.com/https://github.com/goeasy-io/show-livechat.git show-livechat
-    # 清除老数据
-    if [ -d "show-livechat/$versionDir" ]; then
-        rm -rf show-livechat/$versionDir
-    fi
-    # 移动版本目录
-    mv build/$versionDir show-livechat/
-
-    # 切换仓库
-    cd show-livechat
-
-    # 标记推送
-    git add $versionDir
-    git commit -m "[CD-build.sh]将$versionDir部署到pages"
-
-    git push -u origin main
-    # 退出当前目录
-    cd ../
-    echo "----------end execute deploy----------"
 }
 
 # 清理本地目录
@@ -175,12 +168,12 @@ make_build_folder
 build_web
 build_uniapp
 copy_html
-if [ "$ACTION" != "" ]; then
-    deploy
-    clear_file
-    upgrade_versions
-else
+if [ "$action" = "" ]; then
     # 启动静态页面服务
     cd build
     http-server .
+else
+    publish_ftp_server
+    clear_file
+    upgrade_versions
 fi
