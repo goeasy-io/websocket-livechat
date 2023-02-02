@@ -1,0 +1,15 @@
+{
+  "name": "live-chat",
+  "version": "1.0.0",
+  "description": "ci专用",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/goeasy-io/live-chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ftp-deploy": "^2.4.3"
+  }
+}
