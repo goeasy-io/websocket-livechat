@@ -390,7 +390,7 @@
 
   .chat-container {
     width: 850px;
-    height: 650px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -455,7 +455,7 @@
   }
 
   .chat-room-content {
-    height: 500px;
+    height: 300px;
     overflow-y: auto;
     padding: 8px 15px 20px 15px;
     box-sizing: border-box;
