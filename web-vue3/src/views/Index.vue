@@ -126,7 +126,7 @@
   }
 
   .header {
-    padding: 30px 0 25px 0;
+    margin-top: 50px;
     font-size: 14px;
     line-height: 24px;
     text-align: center;
@@ -137,7 +137,7 @@
   .title {
     color: #D02129;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 22px;
     line-height: 33px;
   }
 
@@ -148,13 +148,16 @@
   }
 
   .content {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
     padding: 0 30px;
   }
 
   .avatar-container {
+    width: 100%;
     padding: 15px 0;
   }
 
@@ -179,7 +182,6 @@
   .avatar-box-item {
     height: 70px;
     width: 70px;
-    box-sizing: border-box;
     margin: 4px;
   }
 
@@ -192,7 +194,6 @@
 
   .avatar-box .active {
     border: 4px solid red;
-    box-sizing: border-box;
     border-radius: 64.5px;
   }
 
@@ -201,6 +202,7 @@
   }
 
   .room-container {
+    width: 100%;
     height: 100px;
   }
 
@@ -232,6 +234,7 @@
   }
 
   .nick-input {
+    width: 450px;
     height: 28px;
     outline: none;
     border-radius: 80px;

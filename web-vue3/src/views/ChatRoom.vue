@@ -30,6 +30,7 @@
           <div class="message-input-box">
             <input class="message-input" :value="newMessageContent"
                    placeholder="说点什么..."
+                   @keydown="sendMessageByEnter"
                    @input="onInputMessage"/>
             <div class="message-btn" @click="sendMessage(MessageType.CHAT, newMessageContent)">↑</div>
           </div>
@@ -330,6 +331,13 @@
     newMessageContent = event.target.value;
   }
 
+  function sendMessageByEnter(event) {
+    if (event.keyCode === 13) { // enter发送
+      event.preventDefault();
+      sendMessage(MessageType.CHAT, newMessageContent)
+    }
+  }
+
   function sendMessage(messageType, content) {
     //发送消息
     if (content === "" && messageType === MessageType.CHAT) {
@@ -459,7 +467,17 @@
     height: 300px;
     overflow-y: auto;
     padding: 8px 15px 20px 15px;
-    box-sizing: border-box;
+    scrollbar-width: thin;
+  }
+
+  .chat-room-content::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  /*滚动条里面小方块*/
+  .chat-room-content::-webkit-scrollbar-thumb {
+    border-radius: 10px !important;
+    background:#b6b6b6!important;
   }
 
   .message-box {
@@ -467,24 +485,20 @@
   }
 
   .message-item {
-    box-sizing: border-box;
     height: 36px;
     background-color: rgba(196, 196, 196, 0.2);
     display: inline-block;
     font-size: 14px;
     border-radius: 50px;
     padding: 9px 15px;
-    font-family: Microsoft YaHei UI;
   }
 
   .user-name {
     color: #D02129;
-    font-family: Microsoft YaHei UI;
   }
 
   .user-message {
     color: #333;
-    font-family: Microsoft YaHei UI;
   }
 
   .chat-room-action {
@@ -503,7 +517,6 @@
     background-color: rgba(51, 51, 51, 0.1);
     height: 40px;
     border-radius: 50px;
-    box-sizing: border-box;
     padding: 13px 20px;
     font-size: 14px;
     outline: none;
