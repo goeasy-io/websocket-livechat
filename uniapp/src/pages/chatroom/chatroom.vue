@@ -24,7 +24,7 @@
       </view>
       <view class="chat-room-input">
         <view style="position: relative;">
-          <input class="uni-input" :value="newMessageContent" placeholder="说点什么..." @input="onInputMessage"/>
+          <input class="uni-input" :value="newMessageContent" placeholder="说点什么..." @input="onInputMessage" @confirm="sendMessageByEnter"/>
           <view class="uni-btn" @click="sendMessage(MessageType.CHAT, newMessageContent)">↑</view>
         </view>
         <image class="heart" @click="sendMessage(MessageType.PROP, Prop.HEART)"
@@ -308,6 +308,11 @@
     });
   }
 
+  const sendMessageByEnter = (event) => {
+    newMessageContent.value = event.detail.value;
+    sendMessage(MessageType.CHAT, newMessageContent);
+  }
+
   const onInputMessage = (event) => {//双向绑定消息 兼容
     nextTick(() => {
       newMessageContent.value = event.detail.value;
@@ -452,9 +457,7 @@
   }
 
   .scroll-view {
-    overflow-y: auto;
     padding: 100rpx 38rpx 130rpx 38rpx;
-    box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -463,24 +466,20 @@
   }
 
   .message-item {
-    box-sizing: border-box;
     height: 72rpx;
     background-color: rgba(196, 196, 196, 0.2);
     display: inline-block;
     font-size: 28rpx;
     border-radius: 100rpx;
     padding: 18rpx 30rpx;
-    font-family: Microsoft YaHei UI;
   }
 
   .user-name {
     color: #D02129;
-    font-family: Microsoft YaHei UI;
   }
 
   .user-message {
     color: #333;
-    font-family: Microsoft YaHei UI;
   }
 
   .chat-room-input {
@@ -494,11 +493,9 @@
   }
 
   .uni-input {
-    width: 528rpx;
+    width: 448rpx;
     background-color: rgba(51, 51, 51, 0.1);
-    height: 92rpx;
     border-radius: 100rpx;
-    box-sizing: border-box;
     padding: 26rpx 40rpx;
     font-size: 28rpx;
   }

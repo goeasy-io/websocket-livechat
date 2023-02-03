@@ -5,18 +5,18 @@
       <text class="description">Uniapp Vue3 聊天室（直播间）</text>
     </view>
     <view class="content">
-      <input :class='nickname == "" ? "input-notice uni-input" : "uni-input"'
+      <input :class='nickname === "" ? "input-notice uni-input" : "uni-input"'
              :value="nickname"
              placeholder="请输入昵称"
              @input="onInputUserName">
       <view class="avatar-container">
         <view class="avatar-notice">
           <text>请选择头像</text>
-          <text class="avatar-notice-info" v-if="selectedAvatar.imgUrl ==''">请选一个头像哦!!!</text>
+          <text class="avatar-notice-info" v-if="selectedAvatar.imgUrl ===''">请选一个头像哦!!!</text>
         </view>
         <view class="avatar-box">
           <view
-            :class="selectedAvatar.id == avatar.id ? 'avatar-box-item active' : 'avatar-box-item '"
+            :class="selectedAvatar.id === avatar.id ? 'avatar-box-item active' : 'avatar-box-item '"
             v-for="(avatar, key) in avatarList"
             :key="key"
             @click="onSelectAvatar(avatar)">
