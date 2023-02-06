@@ -10,8 +10,9 @@ triggers:
 variables:
   latest_version: ''
   global:
-    - GIT_HUB_USER
-    - GIT_HUB_TOKEN
+    - FTP_HOST
+    - FTP_USER
+    - FTP_PASS
 stages:
   - name: stage-b9750053
     displayName: deploy
