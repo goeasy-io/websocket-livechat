@@ -10,7 +10,7 @@ git_email=${GIT_EMAIL}
 ftp_host=${FTP_HOST}
 ftp_username=${FTP_USER}
 ftp_password=${FTP_PASS}
-ftp_compressed=${FTP_UPLOAD_COMPRESSED}
+ftp_compressed=${COMPRESSED}
 
 echo "action: $action"
 echo "config_appkey: $config_appkey"
