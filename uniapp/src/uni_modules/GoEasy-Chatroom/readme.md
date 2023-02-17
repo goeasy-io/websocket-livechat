@@ -7,7 +7,9 @@ GoEasy Websocket安全稳定，支持海量用户同时在线，每秒千万级�
 
 参考本示例，几行代码，就可以快速的实现发送文字、图片、表情、点赞、弹幕、送礼物、打赏等聊天室互动功能。
 
-[官方开发文档](https://www.goeasy.io/cn/developers/2.x.html)    [开源Demo下载](https://gitee.com/goeasy-io/GoEasyDemo-Uniapp-IM-Chat)
+[Demo在线体验和源码下载](https://www.goeasy.io/cn/demos/demos.html#livechat)
+
+[官方开发文档](https://docs.goeasy.io/2.x/pubsub) 
 
 
 ## 应用场景
@@ -44,7 +46,7 @@ GoEasy Websocket安全稳定，性能强悍，支持海量用户同时在线，�
 
 
 *  默认为vue, 可以在pages.json里，切换vue和nvue
-*  在app.vue里将appkey替换为您自己的common Key，[获取appkey](https://www.goeasy.io/cn/docs/goeasy-2.x/common/account/developer-account.html).
+*  在app.vue里将appkey替换为您自己的common Key，[获取appkey](https://docs.goeasy.io/2.x/common/account/developer-account).
 ```js
         globalData:{
                 goEasy: GoEasy.getInstance({
