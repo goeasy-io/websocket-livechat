@@ -102,6 +102,8 @@ build_uniapp() {
 copy_html() {
     echo "----------start execute copy_html----------"
     cp index.html build/$versionDir/index.html
+    cp phone.png build/$versionDir/phone.png
+    cp topbar.png build/$versionDir/topbar.png
     echo "----------end execute copy_html----------"
 }
 
