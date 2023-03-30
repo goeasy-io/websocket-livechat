@@ -108,13 +108,11 @@
 
 <style>
   .header {
-    padding: 70rpx 0;
     font-size: 28rpx;
     line-height: 48rpx;
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-family: Microsoft YaHei UI;
   }
 
   .title {
@@ -134,7 +132,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 0 60rpx;
+    padding: 60rpx;
   }
 
   .uni-input {
@@ -192,10 +190,6 @@
   .avatar-box .active image {
     border: 8rpx solid #fff;
     box-sizing: border-box;
-  }
-
-  .room-container {
-    height: 370rpx;
   }
 
   .room-title {

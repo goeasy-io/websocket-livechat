@@ -399,7 +399,6 @@
 
   .chat-container {
     width: 850px;
-    height: 450px;
     display: flex;
     flex-direction: column;
     position: relative;

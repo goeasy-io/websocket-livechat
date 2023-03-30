@@ -122,7 +122,6 @@
 
   .login-main {
     width: 850px;
-    height: 450px;
   }
 
   .header {
