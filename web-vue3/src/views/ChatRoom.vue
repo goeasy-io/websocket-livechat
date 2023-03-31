@@ -463,7 +463,7 @@
   }
 
   .chat-room-content {
-    height: 300px;
+    height: 270px;
     overflow-y: auto;
     padding: 8px 15px 20px 15px;
     scrollbar-width: thin;
