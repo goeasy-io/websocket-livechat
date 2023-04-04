@@ -1,5 +1,5 @@
 //app.js
-import GoEasy from "./static/lib/goeasy-2.6.1.min.js";
+import GoEasy from "./static/lib/goeasy-2.6.4.esm.min";
 App({
   onLaunch: function () {
     console.log("App onLaunch");

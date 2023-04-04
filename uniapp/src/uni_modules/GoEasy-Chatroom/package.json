@@ -1,7 +1,7 @@
 {
     "id": "GoEasy-Chatroom",
     "displayName": "聊天室（直播间聊天）",
-    "version": "2.6.1",
+    "version": "2.6.4",
     "description": "GoEasy快速实现聊天室、直播间聊天，发送弹幕、道具。支持vue和nvue，可以打包为APP、各种小程序和H5。",
     "keywords": [
         "聊天室",
