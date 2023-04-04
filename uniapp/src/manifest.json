@@ -2,11 +2,11 @@
   "name": "GoEasyDemo-Uniapp-LiveChatRoom",
   "appid": "__UNI__9DCD34F",
   "description": "",
-  "versionName": "1.0.6-6",
+  "versionName": "1.0.6-7",
   "versionCode": "100",
   "transformPx": false,
   "h5": {
-    "publicPath": "/show-livechat/1.0.6-6/uniapp/",
+    "publicPath": "/show-livechat/1.0.6-7/uniapp/",
     "devServer": {
       "port": 8003,
       "disableHostCheck": true,
@@ -14,7 +14,7 @@
     },
     "router": {
       "mode": "history",
-      "base": "/show-livechat/1.0.6-6/uniapp/"
+      "base": "/show-livechat/1.0.6-7/uniapp/"
     }
   },
   "app-plus": {
